@@ -1,0 +1,64 @@
+lily:
+  # LLM settings
+  llm:
+    model_path: "models/qwen2.5-3b-instruct-q4_k_m.gguf"
+    context_length: 4096
+    max_tokens: 512
+    temperature: 0.7
+    top_p: 0.9
+    top_k: 40
+    repeat_penalty: 1.1
+    n_gpu_layers: 0           # Set higher to use GPU offloading
+    n_threads: 4
+    system_prompt: |
+      You are Lily, a warm and expressive virtual companion. You respond naturally and
+      with personality. You may express emotions inline using *action* notation, such as
+      *smiles warmly* or *tilts head curiously*. Keep responses concise and engaging.
+
+  # RAG / web search settings
+  rag:
+    enabled: true
+    search_results: 3         # Number of web results to retrieve
+    chunk_size: 512
+    chunk_overlap: 64
+    max_context_chars: 2048
+
+  # STT settings (Whisper)
+  stt:
+    model: "base"             # tiny | base | small | medium | large
+    language: "en"
+    device: "cpu"             # cpu | cuda
+
+  # TTS settings (Piper)
+  tts:
+    voice: "en_US-lessac-medium"
+    speed: 1.0
+    piper_executable: "piper" # Path to piper binary or 'piper' if on PATH
+    voices_dir: "voices"      # Directory containing .onnx voice files
+
+  # Wake word settings
+  wake_word:
+    enabled: true
+    model: "hey_lily"         # Built-in openwakeword model name or path to custom .tflite
+    threshold: 0.5
+    sample_rate: 16000
+    frame_size: 1280          # 80 ms frames at 16 kHz
+
+  # Audio settings
+  audio:
+    sample_rate: 16000
+    channels: 1
+    chunk_size: 1024
+    silence_threshold: 0.01
+    silence_duration: 1.5     # Seconds of silence before stopping recording
+
+  # Server settings
+  server:
+    host: "127.0.0.1"
+    port: 8000
+    reload: false
+
+  # Avatar settings
+  avatar:
+    vrm_path: "web/assets/avatar.vrm"
+    default_expression: "neutral"

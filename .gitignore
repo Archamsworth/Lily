@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.pyo
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env/
+
+# Models / large binary files
+models/
+voices/
+*.gguf
+*.onnx
+*.bin
+*.pt
+*.pth
+
+# Audio / media
+*.wav
+*.mp3
+*.ogg
+*.flac
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Environment variables
+.env
+.envrc

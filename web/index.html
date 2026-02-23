@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lily – Virtual Companion</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+  <!-- ── 3-D Avatar canvas ─────────────────────────────────────── -->
+  <div id="avatar-container">
+    <canvas id="avatar-canvas"></canvas>
+    <div id="avatar-status"></div>
+  </div>
+
+  <!-- ── Chat panel ────────────────────────────────────────────── -->
+  <div id="chat-panel">
+    <div id="chat-messages"></div>
+
+    <div id="input-row">
+      <button id="mic-btn" title="Hold to speak (or say 'Hey Lily')">🎤</button>
+      <input id="text-input" type="text" placeholder="Type a message…" autocomplete="off" />
+      <button id="send-btn">Send</button>
+    </div>
+
+    <div id="status-bar">
+      <span id="connection-status">⚫ Connecting…</span>
+      <span id="system-status"></span>
+    </div>
+  </div>
+
+  <!-- ── Three.js + VRM (loaded from CDN) ──────────────────────── -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/",
+      "@pixiv/three-vrm": "https://cdn.jsdelivr.net/npm/@pixiv/three-vrm@2.1.2/lib/three-vrm.module.js"
+    }
+  }
+  </script>
+  <script type="module" src="/static/js/avatar.js"></script>
+  <script type="module" src="/static/js/app.js"></script>
+</body>
+</html>
